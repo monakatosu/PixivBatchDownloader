@@ -2663,7 +2663,8 @@
             this.gzhead = null /* gzip header information to write */
             this.gzindex = 0 /* where in extra, name, or comment */
             this.method = Z_DEFLATED /* can only be DEFLATED */
-            this.last_flush = -1 /* value of flush param for previous deflate call */
+            this.last_flush =
+              -1 /* value of flush param for previous deflate call */
 
             this.w_size = 0 /* LZ77 window size (32K by default) */
             this.w_bits = 0 /* log2(w_size)  (8..16) */
@@ -3339,7 +3340,8 @@
                 }
                 flush_pending(strm)
                 if (strm.avail_out === 0) {
-                  s.last_flush = -1 /* avoid BUF_ERROR at next call, see above */
+                  s.last_flush =
+                    -1 /* avoid BUF_ERROR at next call, see above */
                   return Z_OK
                 }
               }
@@ -4127,8 +4129,10 @@ exports.deflateTune = deflateTune;
    as buffers so we don't need codes
   */
             //this.codes = new utils.Buf32(ENOUGH);       /* space for code tables */
-            this.lendyn = null /* dynamic table for length/literal codes (JS specific) */
-            this.distdyn = null /* dynamic table for distance codes (JS specific) */
+            this.lendyn =
+              null /* dynamic table for length/literal codes (JS specific) */
+            this.distdyn =
+              null /* dynamic table for distance codes (JS specific) */
             this.sane = 0 /* if false, allow invalid distance too far */
             this.back = 0 /* bits back of last unprocessed length/lit */
             this.was = 0 /* initial length of match */
@@ -5759,141 +5763,27 @@ exports.inflateUndermine = inflateUndermine;
           var DISTS = 2
 
           var lbase = [
-            /* Length codes 257..285 base */ 3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            13,
-            15,
-            17,
-            19,
-            23,
-            27,
-            31,
-            35,
-            43,
-            51,
-            59,
-            67,
-            83,
-            99,
-            115,
-            131,
-            163,
-            195,
-            227,
-            258,
-            0,
-            0,
+            /* Length codes 257..285 base */ 3, 4, 5, 6, 7, 8, 9, 10, 11, 13,
+            15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163,
+            195, 227, 258, 0, 0,
           ]
 
           var lext = [
-            /* Length codes 257..285 extra */ 16,
-            16,
-            16,
-            16,
-            16,
-            16,
-            16,
-            16,
-            17,
-            17,
-            17,
-            17,
-            18,
-            18,
-            18,
-            18,
-            19,
-            19,
-            19,
-            19,
-            20,
-            20,
-            20,
-            20,
-            21,
-            21,
-            21,
-            21,
-            16,
-            72,
-            78,
+            /* Length codes 257..285 extra */ 16, 16, 16, 16, 16, 16, 16, 16,
+            17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21,
+            21, 21, 21, 16, 72, 78,
           ]
 
           var dbase = [
-            /* Distance codes 0..29 base */ 1,
-            2,
-            3,
-            4,
-            5,
-            7,
-            9,
-            13,
-            17,
-            25,
-            33,
-            49,
-            65,
-            97,
-            129,
-            193,
-            257,
-            385,
-            513,
-            769,
-            1025,
-            1537,
-            2049,
-            3073,
-            4097,
-            6145,
-            8193,
-            12289,
-            16385,
-            24577,
-            0,
-            0,
+            /* Distance codes 0..29 base */ 1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33,
+            49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073,
+            4097, 6145, 8193, 12289, 16385, 24577, 0, 0,
           ]
 
           var dext = [
-            /* Distance codes 0..29 extra */ 16,
-            16,
-            16,
-            16,
-            17,
-            17,
-            18,
-            18,
-            19,
-            19,
-            20,
-            20,
-            21,
-            21,
-            22,
-            22,
-            23,
-            23,
-            24,
-            24,
-            25,
-            25,
-            26,
-            26,
-            27,
-            27,
-            28,
-            28,
-            29,
-            29,
-            64,
-            64,
+            /* Distance codes 0..29 extra */ 16, 16, 16, 16, 17, 17, 18, 18, 19,
+            19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27,
+            28, 28, 29, 29, 64, 64,
           ]
 
           module.exports = function inflate_table(
@@ -6359,70 +6249,15 @@ exports.inflateUndermine = inflateUndermine;
           var extra_lbits =
             /* extra bits for each length code */
             [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1,
-              1,
-              1,
-              1,
-              2,
-              2,
-              2,
-              2,
-              3,
-              3,
-              3,
-              3,
-              4,
-              4,
-              4,
-              4,
-              5,
-              5,
-              5,
-              5,
-              0,
+              0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4,
+              4, 4, 5, 5, 5, 5, 0,
             ]
 
           var extra_dbits =
             /* extra bits for each distance code */
             [
-              0,
-              0,
-              0,
-              0,
-              1,
-              1,
-              2,
-              2,
-              3,
-              3,
-              4,
-              4,
-              5,
-              5,
-              6,
-              6,
-              7,
-              7,
-              8,
-              8,
-              9,
-              9,
-              10,
-              10,
-              11,
-              11,
-              12,
-              12,
-              13,
-              13,
+              0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,
+              10, 10, 11, 11, 12, 12, 13, 13,
             ]
 
           var extra_blbits =
@@ -6430,25 +6265,7 @@ exports.inflateUndermine = inflateUndermine;
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7]
 
           var bl_order = [
-            16,
-            17,
-            18,
-            0,
-            8,
-            7,
-            9,
-            6,
-            10,
-            5,
-            11,
-            4,
-            12,
-            3,
-            13,
-            2,
-            14,
-            1,
-            15,
+            16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15,
           ]
           /* eslint-enable comma-spacing,array-bracket-spacing */
 

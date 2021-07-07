@@ -25,7 +25,8 @@ import { pageType } from '../PageType'
 abstract class InitPageBase {
   protected crawlNumber = 0 // 要抓取的个数/页数
 
-  protected maxCount = 1000 // 当前页面类型最多有多少个页面/作品
+  // protected maxCount = 1000 // 当前页面类型最多有多少个页面/作品
+  protected maxCount = 100000 // 当前页面类型最多有多少个页面/作品 (勝手に変えた)
 
   protected startpageNo = 1 // 列表页开始抓取时的页码，只在 api 需要页码时使用。目前有搜索页、排行榜页、新作品页、系列页面使用。
 

@@ -24,3 +24,6 @@ package-lock.json
 *.zip
 
 .eslintcache
+
+# 2021-7-8 Added by monakatosu as this is fork
+dist

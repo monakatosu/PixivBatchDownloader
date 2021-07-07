@@ -191,7 +191,9 @@ class InitSearchArtworkPage extends InitPageBase {
   protected async nextStep() {
     this.initFetchURL()
 
-    if (this.startpageNo > 1000) {
+    // 勝手に増やす
+    // (this.startpageNo > 1000) {
+    if (this.startpageNo > 100000) {
       msgBox.error(`${lang.transl('_超出最大页码')} ${this.maxCount}`)
       return this.noResult()
     }

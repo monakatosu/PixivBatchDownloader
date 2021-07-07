@@ -358,9 +358,11 @@ class API {
             lastPage = true
           }
 
-          let worksInfoText = (listPageDocument.querySelector(
-            '#js-mount-point-latest-following'
-          ) as HTMLDivElement).dataset.items!
+          let worksInfoText = (
+            listPageDocument.querySelector(
+              '#js-mount-point-latest-following'
+            ) as HTMLDivElement
+          ).dataset.items!
 
           resolve({
             lastPage,
